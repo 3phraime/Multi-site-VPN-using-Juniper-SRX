@@ -1,9 +1,3 @@
-=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2025.06.20 02:02:00 =~=~=~=~=~=~=~=~=~=~=~=
-
-root> show configuration | no-more |display set    
-root> show configuration | no-more                
-## Last commit: 2025-06-20 00:53:54 UTC by root
-version 20190606.224121_builder.r1033375;
 system {
     root-authentication {
         encrypted-password "$6$tmnAT6D5$MDTZp.m6R7dUO9jWsJ7wG.zFbMHLqowjohdg2WJXJBJMTGC.Ev2IrtDHBVjn79zfVc1p1.6Dm0mKX1tMsf1hy0"; ## SECRET-DATA
@@ -96,9 +90,7 @@ interfaces {
     }
 }
 
-root> 
-root> show configuration | no-more    
-root> show configuration | no-more |display set    
+
 set version 20190606.224121_builder.r1033375
 set system root-authentication encrypted-password "$6$tmnAT6D5$MDTZp.m6R7dUO9jWsJ7wG.zFbMHLqowjohdg2WJXJBJMTGC.Ev2IrtDHBVjn79zfVc1p1.6Dm0mKX1tMsf1hy0"
 set security policies from-zone trust to-zone trust policy trust-trust-policy match source-address any
