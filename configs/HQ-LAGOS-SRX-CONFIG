@@ -1,0 +1,128 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2025.06.20 02:02:00 =~=~=~=~=~=~=~=~=~=~=~=
+
+root> show configuration | no-more |display set    
+root> show configuration | no-more                
+## Last commit: 2025-06-20 00:53:54 UTC by root
+version 20190606.224121_builder.r1033375;
+system {
+    root-authentication {
+        encrypted-password "$6$tmnAT6D5$MDTZp.m6R7dUO9jWsJ7wG.zFbMHLqowjohdg2WJXJBJMTGC.Ev2IrtDHBVjn79zfVc1p1.6Dm0mKX1tMsf1hy0"; ## SECRET-DATA
+    }
+}
+security {
+    policies {
+        from-zone trust to-zone trust {
+            policy trust-trust-policy {
+                match {
+                    source-address any;
+                    destination-address any;
+                    application any;
+                }
+                then {
+                    permit;
+                }
+            }
+        }
+    }
+    zones {
+        security-zone trust {
+            address-book {
+                address hq-lan-subnet 172.16.1.0/24;
+            }
+            host-inbound-traffic {
+                system-services {
+                    all;
+                }
+            }
+            interfaces {
+                ge-0/0/2.10;
+                ge-0/0/2.20;
+                ge-0/0/2.30;
+            }
+        }
+        security-zone untrust {
+            address-book {
+                address abuja-peer 100.100.100.2/32;
+                address ph-peer 100.100.100.6/32;
+            }
+            host-inbound-traffic {
+                system-services {
+                    ping;
+                    ike;
+                }
+            }
+            interfaces {
+                ge-0/0/0.0;
+                ge-0/0/1.0;
+            }
+        }
+    }
+}
+interfaces {
+    ge-0/0/0 {
+        unit 0 {
+            family inet {
+                address 100.100.100.1/32;
+            }
+        }
+    }
+    ge-0/0/1 {
+        unit 0 {
+            family inet {
+                address 100.100.100.5/32;
+            }
+        }
+    }
+    ge-0/0/2 {
+        vlan-tagging;
+        unit 10 {
+            vlan-id 10;
+            family inet {
+                address 172.16.1.1/26;
+            }
+        }
+        unit 20 {
+            vlan-id 20;
+            family inet {
+                address 172.16.1.65/27;
+            }
+        }
+        unit 30 {
+            vlan-id 30;
+            family inet {
+                address 172.16.1.97/28;
+            }
+        }
+    }
+}
+
+root> 
+root> show configuration | no-more    
+root> show configuration | no-more |display set    
+set version 20190606.224121_builder.r1033375
+set system root-authentication encrypted-password "$6$tmnAT6D5$MDTZp.m6R7dUO9jWsJ7wG.zFbMHLqowjohdg2WJXJBJMTGC.Ev2IrtDHBVjn79zfVc1p1.6Dm0mKX1tMsf1hy0"
+set security policies from-zone trust to-zone trust policy trust-trust-policy match source-address any
+set security policies from-zone trust to-zone trust policy trust-trust-policy match destination-address any
+set security policies from-zone trust to-zone trust policy trust-trust-policy match application any
+set security policies from-zone trust to-zone trust policy trust-trust-policy then permit
+set security zones security-zone trust address-book address hq-lan-subnet 172.16.1.0/24
+set security zones security-zone trust host-inbound-traffic system-services all
+set security zones security-zone trust interfaces ge-0/0/2.10
+set security zones security-zone trust interfaces ge-0/0/2.20
+set security zones security-zone trust interfaces ge-0/0/2.30
+set security zones security-zone untrust address-book address abuja-peer 100.100.100.2/32
+set security zones security-zone untrust address-book address ph-peer 100.100.100.6/32
+set security zones security-zone untrust host-inbound-traffic system-services ping
+set security zones security-zone untrust host-inbound-traffic system-services ike
+set security zones security-zone untrust interfaces ge-0/0/0.0
+set security zones security-zone untrust interfaces ge-0/0/1.0
+set interfaces ge-0/0/0 unit 0 family inet address 100.100.100.1/32
+set interfaces ge-0/0/1 unit 0 family inet address 100.100.100.5/32
+set interfaces ge-0/0/2 vlan-tagging
+set interfaces ge-0/0/2 unit 10 vlan-id 10
+set interfaces ge-0/0/2 unit 10 family inet address 172.16.1.1/26
+set interfaces ge-0/0/2 unit 20 vlan-id 20
+set interfaces ge-0/0/2 unit 20 family inet address 172.16.1.65/27
+set interfaces ge-0/0/2 unit 30 vlan-id 30
+set interfaces ge-0/0/2 unit 30 family inet address 172.16.1.97/28
+
