@@ -1,0 +1,490 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2025.06.19 12:50:27 =~=~=~=~=~=~=~=~=~=~=~=
+root# show    root# ...faces ge-0/0/7 unit 0 family ethernet-switching vlan members 30    root# show                                                                                SHOW
+      ^
+unknown command.
+root# SHOW                   show conmf      nf
+           ^
+syntax error.
+root# show connf        i
+           ^
+syntax error.
+root# show connfi               nf
+           ^
+syntax error.
+root# show conf      
+           ^
+syntax error.
+root# show conf                              run shoq
+          ^
+syntax error, expecting <command>.
+root# run shoq              w configuration 
+## Last commit: 2025-06-18 19:55:01 UTC by root
+version 23.1R1.8;
+system {
+    root-authentication {
+        encrypted-password "$6$lDJuAiRW$huvJqnGadKLML0TTYcQz0400Fh9Wy5M6AHpnIVH08r73DddzDLznzXtOfWMZYwgnyzDilnNYlD3xpnBplqftZ."; ## SECRET-DATA
+    }
+}
+interfaces {
+    ge-0/0/5 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+                vlan {
+                    members 10;
+                }
+            }
+        }
+    }
+    ge-0/0/6 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+---(more)---                                                        vlan {
+                    members 10;
+                }
+            }
+        }
+    }
+    irb {
+        unit 10 {
+            family inet {
+                address 172.16.1.1/26;
+            }
+        }
+    }
+}
+vlans {
+    Engineering {
+        vlan-id 10;
+        l3-interface irb.10;
+    }
+}
+
+[edit]
+root# root# run show configuration    | no-more 
+## Last commit: 2025-06-18 19:55:01 UTC by root
+version 23.1R1.8;
+system {
+    root-authentication {
+        encrypted-password "$6$lDJuAiRW$huvJqnGadKLML0TTYcQz0400Fh9Wy5M6AHpnIVH08r73DddzDLznzXtOfWMZYwgnyzDilnNYlD3xpnBplqftZ."; ## SECRET-DATA
+    }
+}
+interfaces {
+    ge-0/0/5 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+                vlan {
+                    members 10;
+                }
+            }
+        }
+    }
+    ge-0/0/6 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+                vlan {
+                    members 10;
+                }
+            }
+        }
+    }
+    irb {
+        unit 10 {
+            family inet {
+                address 172.16.1.1/26;
+            }
+        }
+    }
+}
+vlans {
+    Engineering {
+        vlan-id 10;
+        l3-interface irb.10;
+    }
+}
+
+[edit]
+root# run show configuration | display set | no-more 
+set version 23.1R1.8
+set system root-authentication encrypted-password "$6$lDJuAiRW$huvJqnGadKLML0TTYcQz0400Fh9Wy5M6AHpnIVH08r73DddzDLznzXtOfWMZYwgnyzDilnNYlD3xpnBplqftZ."
+set interfaces ge-0/0/5 unit 0 family ethernet-switching interface-mode access
+set interfaces ge-0/0/5 unit 0 family ethernet-switching vlan members 10
+set interfaces ge-0/0/6 unit 0 family ethernet-switching interface-mode access
+set interfaces ge-0/0/6 unit 0 family ethernet-switching vlan members 10
+set interfaces irb unit 10 family inet address 172.16.1.1/26
+set vlans Engineering vlan-id 10
+set vlans Engineering l3-interface irb.10
+
+[edit]
+root# commit 
+commit complete
+
+[edit]
+root# co      root# commit    root# run show configuration | display set | no-more    root# run show configuration | no-more                 root# run show configuration | display set | no-more    root# run show configuration | no-more                 
+## Last commit: 2025-06-19 12:02:44 UTC by root
+version 23.1R1.8;
+system {
+    root-authentication {
+        encrypted-password "$6$lDJuAiRW$huvJqnGadKLML0TTYcQz0400Fh9Wy5M6AHpnIVH08r73DddzDLznzXtOfWMZYwgnyzDilnNYlD3xpnBplqftZ."; ## SECRET-DATA
+    }
+}
+interfaces {
+    ge-0/0/3 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+                vlan {
+                    members 20;
+                }
+            }
+        }
+    }
+    ge-0/0/4 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+                vlan {
+                    members 20;
+                }
+            }
+        }
+    }
+    ge-0/0/5 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+                vlan {
+                    members 10;
+                }
+            }
+        }
+    }
+    ge-0/0/6 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+                vlan {
+                    members 10;
+                }
+            }
+        }
+    }
+    ge-0/0/7 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+                vlan {
+                    members 30;
+                }
+            }
+        }
+    }
+    ge-0/0/8 {
+        unit 0 {
+            family ethernet-switching {
+                interface-mode access;
+                vlan {
+                    members 30;
+                }
+            }
+        }
+    }
+    irb {
+        unit 10 {
+            family inet {
+                address 172.16.1.1/26;
+            }
+        }
+        unit 20 {
+            family inet {
+                address 172.16.1.65/27;
+            }
+        }
+        unit 30 {
+            family inet {
+                address 172.16.1.97/28;
+            }
+        }
+    }
+}
+vlans {
+    Engineering {
+        vlan-id 10;
+        l3-interface irb.10;
+    }
+    Finance {
+        vlan-id 20;
+        l3-interface irb.20;
+    }
+    HR {
+        vlan-id 30;
+        l3-interface irb.30;
+    }
+}
+
+[edit]
+root# root# run show configuration | no-more    root# commit                             root# run show configuration | display set | no-more    root# commit                                           root# run show configuration | no-more    root# commit                             root# run show configuration | display set | no-more    
+set version 23.1R1.8
+set system root-authentication encrypted-password "$6$lDJuAiRW$huvJqnGadKLML0TTYcQz0400Fh9Wy5M6AHpnIVH08r73DddzDLznzXtOfWMZYwgnyzDilnNYlD3xpnBplqftZ."
+set interfaces ge-0/0/3 unit 0 family ethernet-switching interface-mode access
+set interfaces ge-0/0/3 unit 0 family ethernet-switching vlan members 20
+set interfaces ge-0/0/4 unit 0 family ethernet-switching interface-mode access
+set interfaces ge-0/0/4 unit 0 family ethernet-switching vlan members 20
+set interfaces ge-0/0/5 unit 0 family ethernet-switching interface-mode access
+set interfaces ge-0/0/5 unit 0 family ethernet-switching vlan members 10
+set interfaces ge-0/0/6 unit 0 family ethernet-switching interface-mode access
+set interfaces ge-0/0/6 unit 0 family ethernet-switching vlan members 10
+set interfaces ge-0/0/7 unit 0 family ethernet-switching interface-mode access
+set interfaces ge-0/0/7 unit 0 family ethernet-switching vlan members 30
+set interfaces ge-0/0/8 unit 0 family ethernet-switching interface-mode access
+set interfaces ge-0/0/8 unit 0 family ethernet-switching vlan members 30
+set interfaces irb unit 10 family inet address 172.16.1.1/26
+set interfaces irb unit 20 family inet address 172.16.1.65/27
+set interfaces irb unit 30 family inet address 172.16.1.97/28
+set vlans Engineering vlan-id 10
+set vlans Engineering l3-interface irb.10
+set vlans Finance vlan-id 20
+set vlans Finance l3-interface irb.20
+set vlans HR vlan-id 30
+set vlans HR l3-interface irb.30
+
+[edit]
+root# run show configuration | display ?
+Possible completions:
+  changed              Tag changes with junos:changed attribute (XML only)
+  commit-scripts       Show data after commit scripts have been applied
+  detail               Show configuration data detail
+  inheritance          Show inherited configuration data and source group
+  json                 Show output in JSON format
+  mark-changed         Tag changes with junos:mark-changed attribute (XML only)
+  max-depth            Maximum depth of configuration data
+  max-version          Maximum version of configuration data
+  omit                 Emit configuration statements with the 'omit' option
+  rfc5952              Display IPv6 addresses as per RFC 5952 specifications
+  set                  Show 'set' commands that create configuration
+  translation-scripts  Show data after translation scripts have been applied
+  xml                  Show output as XML tags
+[edit]
+root# run show configuration | display    detail 
+## Last commit: 2025-06-19 12:02:44 UTC by root
+##
+## version: Software version information
+## YANG module: junos-conf-root@2023-01-01.yang
+## require: system 
+##
+version 23.1R1.8;
+##
+## system: System parameters
+## YANG module: junos-conf-system@2023-01-01.yang
+## require: admin system 
+## Daemon notify list: : sdk-vmmd 
+##
+system {
+    ##
+    ## root-authentication: Authentication information for the root login
+    ## YANG module: junos-conf-system@2023-01-01.yang
+    ## require: admin 
+    ## Daemon notify list: : sdk-vmmd spmd 
+    ## package: junos-base 
+    ##
+    root-authentication {
+        ##
+---(more)---                                                ## encrypted-password: Encrypted password string
+        ## YANG module: junos-conf-system@2023-01-01.yang
+        ## range: 1 .. 128
+        ##
+        encrypted-password "$6$lDJuAiRW$huvJqnGadKLML0TTYcQz0400Fh9Wy5M6AHpnIVH08r73DddzDLznzXtOfWMZYwgnyzDilnNYlD3xpnBplqftZ."; ## SECRET-DATA
+    }
+    ##
+    ## time-zone: Time zone name or POSIX-compliant time zone string
+    ## units: <continent>/<major-city> or <time-zone>
+    ##
+    ## default: UTC
+    ##
+    ## saved-core-files: Number of saved core files per executable
+    ## range: 1 .. 10
+    ##
+    ## default: 5
+    ##
+    ## max-configurations-on-flash: Number of configuration files stored on flash
+    ## range: 0 .. 49
+    ##
+    ## default: 3
+---(more 8%)---                                        }
+##
+## interfaces: Interface configuration
+## YANG module: junos-conf-interfaces@2023-01-01.yang
+## require: interface 
+## Daemon notify list: : none chassisd dcd mib2d apsd vrrpd pfed sampled fud spd rdd dfcd cfmd mclag-cfgchkd smid sdk-vmmd scchassisd l2ald l2cpd mcsnoopd kmd 
+## package: junos-base srd traffic-dird url-filterd 
+##
+interfaces {
+    ##
+    ## constraint: Primary and backup ES PIC interfaces must be different
+    ##
+    ge-0/0/3 {
+        ##
+        ## range: 0 .. 1073741823
+        ##
+        unit 0 {
+            ##
+            ## family: Protocol family
+            ## YANG module: junos-conf-interfaces@2023-01-01.yang
+            ## Daemon notify list: : dfwd 
+---(more 12%)---                                                    ## constraint: Can't configure protocol family with encapsulation ppp-over-ether
+            ##
+            ##
+            ## ethernet-switching: Ethernet switching parameters
+            ## YANG module: junos-conf-interfaces@2023-01-01.yang
+            ## Daemon notify list: : rpd dot1xd 
+---(more 13%)---                                                    ## products: mx960, jsr2300, jsr4300, jsr6300, jsr4350, jsr6350, jsr2320, jsr2350, mx480, srx5800, srx5600, mx240, srx3600, srx3400, srx210b, srx210h, srx210h-poe, srx210h-p-m, srx240b, srx240h, srx240h-poe, srx240h-p-m, srx630, srx650, srx680, srx100b, srx100h, srx110b-va, srx110h-va, srx110b-vb, srx110h-vb, srx110b-wl, srx220h, srx220h-poe, srx220h-p-m, ln1000-v, fx1600_48, fx2160_48, qfx3500, ptx5000, srx1400, srx240h-dc, qfx3008-i, fx-jvre, qfx3500s, srx110h-wl, srx110h-va-wl, srx210be, srx210he, srx210he-poe, srx110h-vb-wl, srx210he-p-m, vjx1000, srx550, qfx3600-16q, qfx3600-i, qfx3600-16qs, ln2600, ex8208-j, ex8216-j, ex4300-24p, ex4300-24t, ex4300-48p, ex4300-48t, ex4300-48t-bf, ex4300-48t-dc, ex4300-48t-dc-bf, ex9204, ex9208, ex9214, qfx5100-48s-6q, ex4600-40f, ex4300-32f, qfx5100-96s-8q, qfx5100-24q-2pf, qfx5100-48s-6qf, qfx5100-48t-6qf, qfx5100-24q-2p, qfx5100-48t-6q, srx5400, qfx5100-24q-aa, pvi-model, qfx10004, qfx10008, qfx10016, vqfx-10000, qfx5100-24q-2pi, qfx10000-elit, srx240b2, srx240h2, srx240h2-poe, srx240h2-dc, vsrx, srx100h2, srx110h2-va, srx110h2-vb, srx210he2, srx210he2-poe, srx220h2, srx220h2-poe, srxtvp, srx550m, qfx5200-32c-32q, acx5048, acx5096, srx300, srx300-lem, srx320, srx320-lem, srx320-poe, srx320-poe-lem, srx340, srx340-lem, srx345, srx345-lem, mx10001, mx10002, ptx10003-160c, srx320-lte-aa, srx320-lte-ae, srx320-poe-lte-aa, srx320-poe-lte-ae, srx345-dual-ac, srx345-dc, ex9251, ex9253, ptx10003-80c, qfx10003-160c, qfx10003-80c, qfx5220-32cd, qfx5220-128c, csrx, srx380-poe-ac, acx753, qfx5130-32cd, ACX7100-32C, ACX7100-48L, r6273, qfx5700, acx7509, wbonl, qfx5009, acx7908, ACX7024, ptx10002-36qdd, qfx5230-64cd, acx7332, acx7348, qfx5130-48c, qfx5130-48cm
+---(more 14%)---                                                    ## constraint: Family ethernet-switching and rest of the families are mutually exclusive
+            ##
+            family ethernet-switching {
+                ##
+                ## interface-mode: Type of interface mode
+                ## YANG module: junos-conf-interfaces@2023-01-01.yang
+                ## default: access
+                ## Daemon notify list: : dot1xd 
+                ## products: mx960, mx480, srx5800, srx5600, mx240, srx3600, srx3400, ptx5000, srx1400, qfx3500s, srx550, qfx3600-16qs, ex8208-j, ex8216-j, ex4300-24p, ex4300-24t, ex4300-48p, ex4300-48t, ex4300-48t-bf, ex4300-48t-dc, ex4300-48t-dc-bf, ex9204, ex9208, ex9214, qfx5100-48s-6q, ex4600-40f, ex4300-32f, qfx5100-96s-8q, qfx5100-24q-2p, qfx5100-48t-6q, srx5400, qfx5100-24q-aa, pvi-model, qfx10004, qfx10008, qfx10016, vqfx-10000, qfx10000-elit, vsrx, srxtvp, srx550m, qfx5200-32c-32q, acx5048, acx5096, srx300, srx300-lem, srx320, srx320-lem, srx320-poe, srx320-poe-lem, srx340, srx340-lem, srx345, srx345-lem, mx10001, mx10002, ptx10003-160c, srx320-lte-aa, srx320-lte-ae, srx320-poe-lte-aa, srx320-poe-lte-ae, srx345-dual-ac, srx345-dc, ex9251, ex9253, ptx10003-80c, qfx10003-160c, qfx10003-80c, ptx10016, ptx10001-27cd, ptx10008, qfx5220-32cd, qfx5220-128c, ptx10003-81cd, srx380-poe-ac, ptx10001-36mr, acx753, qfx5130-32cd, ptx10004, ACX7100-32C, ACX7100-48L, r6273, qfx5700, acx7509, wbonl, qfx5009, acx7908, ACX7024, qfx5230-64cd, acx7332, acx7348, qfx5130-48c, qfx5130-48cm
+---(more 15%)---                                                        ##
+                interface-mode access;
+                ##
+                ## vlan: Virtual LAN parameters
+                ## YANG module: junos-conf-interfaces@2023-01-01.yang
+                ##
+                vlan {
+                    ##
+                    ## members: Membership for this interface (name or id)
+                    ## YANG module: junos-conf-interfaces@2023-01-01.yang
+                    ##
+                    members 20;
+                }
+            }
+        }
+    }
+    ##
+    ## constraint: Primary and backup ES PIC interfaces must be different
+    ##
+    ge-0/0/4 {
+        ##
+        ## range: 0 .. 1073741823
+        ##
+---(more 20%)---                                                unit 0 {
+            ##
+            ## family: Protocol family
+            ## YANG module: junos-conf-interfaces@2023-01-01.yang
+            ## Daemon notify list: : dfwd 
+            ## constraint: Can't configure protocol family with encapsulation ppp-over-ether
+            ##
+            ##
+            ## ethernet-switching: Ethernet switching parameters
+            ## YANG module: junos-conf-interfaces@2023-01-01.yang
+            ## Daemon notify list: : rpd dot1xd 
+---(more 22%)---                                                    ## products: mx960, jsr2300, jsr4300, jsr6300, jsr4350, jsr6350, jsr2320, jsr2350, mx480, srx5800, srx5600, mx240, srx3600, srx3400, srx210b, srx210h, srx210h-poe, srx210h-p-m, srx240b, srx240h, srx240h-poe, srx240h-p-m, srx630, srx650, srx680, srx100b, srx100h, srx110b-va, srx110h-va, srx110b-vb, srx110h-vb, srx110b-wl, srx220h, srx220h-poe, srx220h-p-m, ln1000-v, fx1600_48, fx2160_48, qfx3500, ptx5000, srx1400, srx240h-dc, qfx3008-i, fx-jvre, qfx3500s, srx110h-wl, srx110h-va-wl, srx210be, srx210he, srx210he-poe, srx110h-vb-wl, srx210he-p-m, vjx1000, srx550, qfx3600-16q, qfx3600-i, qfx3600-16qs, ln2600, ex8208-j, ex8216-j, ex4300-24p, ex4300-24t, ex4300-48p, ex4300-48t, ex4300-48t-bf, ex4300-48t-dc, ex4300-48t-dc-bf, ex9204, ex9208, ex9214, qfx5100-48s-6q, ex4600-40f, ex4300-32f, qfx5100-96s-8q, qfx5100-24q-2pf, qfx5100-48s-6qf, qfx5100-48t-6qf, qfx5100-24q-2p, qfx5100-48t-6q, srx5400, qfx5100-24q-aa, pvi-model, qfx10004, qfx10008, qfx10016, vqfx-10000, qfx5100-24q-2pi, qfx10000-elit, srx240b2, srx240h2, srx240h2-poe, srx240h2-dc, vsrx, srx100h2, srx110h2-va, srx110h2-vb, srx210he2, srx210he2-poe, srx220h2, srx220h2-poe, srxtvp, srx550m, qfx5200-32c-32q, acx5048, acx5096, srx300, srx300-lem, srx320, srx320-lem, srx320-poe, srx320-poe-lem, srx340, srx340-lem, srx345, srx345-lem, mx10001, mx10002, ptx10003-160c, srx320-lte-aa, srx320-lte-ae, srx320-poe-lte-aa, srx320-poe-lte-ae, srx345-dual-ac, srx345-dc, ex9251, ex9253, ptx10003-80c, qfx10003-160c, qfx10003-80c, qfx5220-32cd, qfx5220-128c, csrx, srx380-poe-ac, acx753, qfx5130-32cd, ACX7100-32C, ACX7100-48L, r6273, qfx5700, acx7509, wbonl, qfx5009, acx7908, ACX7024, ptx10002-36qdd, qfx5230-64cd, acx7332, acx7348, qfx5130-48c, qfx5130-48cm
+---(more 22%)---                                                    ## constraint: Family ethernet-switching and rest of the families are mutually exclusive
+            ##
+            family ethernet-switching {
+                ##
+                ## interface-mode: Type of interface mode
+                ## YANG module: junos-conf-interfaces@2023-01-01.yang
+                ## default: access
+                ## Daemon notify list: : dot1xd 
+                ## products: mx960, mx480, srx5800, srx5600, mx240, srx3600, srx3400, ptx5000, srx1400, qfx3500s, srx550, qfx3600-16qs, ex8208-j, ex8216-j, ex4300-24p, ex4300-24t, ex4300-48p, ex4300-48t, ex4300-48t-bf, ex4300-48t-dc, ex4300-48t-dc-bf, ex9204, ex9208, ex9214, qfx5100-48s-6q, ex4600-40f, ex4300-32f, qfx5100-96s-8q, qfx5100-24q-2p, qfx5100-48t-6q, srx5400, qfx5100-24q-aa, pvi-model, qfx10004, qfx10008, qfx10016, vqfx-10000, qfx10000-elit, vsrx, srxtvp, srx550m, qfx5200-32c-32q, acx5048, acx5096, srx300, srx300-lem, srx320, srx320-lem, srx320-poe, srx320-poe-lem, srx340, srx340-lem, srx345, srx345-lem, mx10001, mx10002, ptx10003-160c, srx320-lte-aa, srx320-lte-ae, srx320-poe-lte-aa, srx320-poe-lte-ae, srx345-dual-ac, srx345-dc, ex9251, ex9253, ptx10003-80c, qfx10003-160c, qfx10003-80c, ptx10016, ptx10001-27cd, ptx10008, qfx5220-32cd, qfx5220-128c, ptx10003-81cd, srx380-poe-ac, ptx10001-36mr, acx753, qfx5130-32cd, ptx10004, ACX7100-32C, ACX7100-48L, r6273, qfx5700, acx7509, wbonl, qfx5009, acx7908, ACX7024, qfx5230-64cd, acx7332, acx7348, qfx5130-48c, qfx5130-48cm
+---(more 24%)---                                                        ##
+                interface-mode access;
+                ##
+                ## vlan: Virtual LAN parameters
+                ## YANG module: junos-conf-interfaces@2023-01-01.yang
+                ##
+                vlan {
+                    ##
+                    ## members: Membership for this interface (name or id)
+                    ## YANG module: junos-conf-interfaces@2023-01-01.yang
+                    ##
+                    members 20;
+                }
+            }
+        }
+    }
+    ##
+    ## constraint: Primary and backup ES PIC interfaces must be different
+    ##
+    ge-0/0/5 {
+        ##
+        ## range: 0 .. 1073741823
+        ##
+---(more 29%)---                                                unit 0 {
+            ##
+            ## family: Protocol family
+            ## YANG module: junos-conf-interfaces@2023-01-01.yang
+            ## Daemon notify list: : dfwd 
+            ## constraint: Can't configure protocol family with encapsulation ppp-over-ether
+            ##
+            ##
+            ## ethernet-switching: Ethernet switching parameters
+            ## YANG module: junos-conf-interfaces@2023-01-01.yang
+            ## Daemon notify list: : rpd dot1xd 
+---(more 31%)---                                                    ## products: mx960, jsr2300, jsr4300, jsr6300, jsr4350, jsr6350, jsr2320, jsr2350, mx480, srx5800, srx5600, mx240, srx3600, srx3400, srx210b, srx210h, srx210h-poe, srx210h-p-m, srx240b, srx240h, srx240h-poe, srx240h-p-m, srx630, srx650, srx680, srx100b, srx100h, srx110b-va, srx110h-va, srx110b-vb, srx110h-vb, srx110b-wl, srx220h, srx220h-poe, srx220h-p-m, ln1000-v, fx1600_48, fx2160_48, qfx3500, ptx5000, srx1400, srx240h-dc, qfx3008-i, fx-jvre, qfx3500s, srx110h-wl, srx110h-va-wl, srx210be, srx210he, srx210he-poe, srx110h-vb-wl, srx210he-p-m, vjx1000, srx550, qfx3600-16q, qfx3600-i, qfx3600-16qs, ln2600, ex8208-j, ex8216-j, ex4300-24p, ex4300-24t, ex4300-48p, ex4300-48t, ex4300-48t-bf, ex4300-48t-dc, ex4300-48t-dc-bf, ex9204, ex9208, ex9214, qfx5100-48s-6q, ex4600-40f, ex4300-32f, qfx5100-96s-8q, qfx5100-24q-2pf, qfx5100-48s-6qf, qfx5100-48t-6qf, qfx5100-24q-2p, qfx5100-48t-6q, srx5400, qfx5100-24q-aa, pvi-model, qfx10004, qfx10008, qfx10016, vqfx-10000, qfx5100-24q-2pi, qfx10000-elit, srx240b2, srx240h2, srx240h2-poe, srx240h2-dc, vsrx, srx100h2, srx110h2-va, srx110h2-vb, srx210he2, srx210he2-poe, srx220h2, srx220h2-poe, srxtvp, srx550m, qfx5200-32c-32q, acx5048, acx5096, srx300, srx300-lem, srx320, srx320-lem, srx320-poe, srx320-poe-lem, srx340, srx340-lem, srx345, srx345-lem, mx10001, mx10002, ptx10003-160c, srx320-lte-aa, srx320-lte-ae, srx320-poe-lte-aa, srx320-poe-lte-ae, srx345-dual-ac, srx345-dc, ex9251, ex9253, ptx10003-80c, qfx10003-160c, qfx10003-80c, qfx5220-32cd, qfx5220-128c, csrx, srx380-poe-ac, acx753, qfx5130-32cd, ACX7100-32C, ACX7100-48L, r6273, qfx5700, acx7509, wbonl, qfx5009, acx7908, ACX7024, ptx10002-36qdd, qfx5230-64cd, acx7332, acx7348, qfx5130-48c, qfx5130-48cm
+---(more 31%)---                                                    ## constraint: Family ethernet-switching and rest of the families are mutually exclusive
+            ##
+            family ethernet-switching {
+                ##
+                ## interface-mode: Type of interface mode
+                ## YANG module: junos-conf-interfaces@2023-01-01.yang
+                ## default: access
+                ## Daemon notify list: : dot1xd 
+                ## products: mx960, mx480, srx5800, srx5600, mx240, srx3600, srx3400, ptx5000, srx1400, qfx3500s, srx550, qfx3600-16qs, ex8208-j, ex8216-j, ex4300-24p, ex4300-24t, ex4300-48p, ex4300-48t, ex4300-48t-bf, ex4300-48t-dc, ex4300-48t-dc-bf, ex9204, ex9208, ex9214, qfx5100-48s-6q, ex4600-40f, ex4300-32f, qfx5100-96s-8q, qfx5100-24q-2p, qfx5100-48t-6q, srx5400, qfx5100-24q-aa, pvi-model, qfx10004, qfx10008, qfx10016, vqfx-10000, qfx10000-elit, vsrx, srxtvp, srx550m, qfx5200-32c-32q, acx5048, acx5096, srx300, srx300-lem, srx320, srx320-lem, srx320-poe, srx320-poe-lem, srx340, srx340-lem, srx345, srx345-lem, mx10001, mx10002, ptx10003-160c, srx320-lte-aa, srx320-lte-ae, srx320-poe-lte-aa, srx320-poe-lte-ae, srx345-dual-ac, srx345-dc, ex9251, ex9253, ptx10003-80c, qfx10003-160c, qfx10003-80c, ptx10016, ptx10001-27cd, ptx10008, qfx5220-32cd, qfx5220-128c, ptx10003-81cd, srx380-poe-ac, ptx10001-36mr, acx753, qfx5130-32cd, ptx10004, ACX7100-32C, ACX7100-48L, r6273, qfx5700, acx7509, wbonl, qfx5009, acx7908, ACX7024, qfx5230-64cd, acx7332, acx7348, qfx5130-48c, qfx5130-48cm
+---(more 33%)---                                                        ##
+                interface-mode access;
+                ##
+                ## vlan: Virtual LAN parameters
+                ## YANG module: junos-conf-interfaces@2023-01-01.yang
+                ##
+                vlan {
+                    ##
+                    ## members: Membership for this interface (name or id)
+                    ## YANG module: junos-conf-interfaces@2023-01-01.yang
+                    ##
+                    members 10;
+                }
+            }
+        }
+    }
+    ##
+    ## constraint: Primary and backup ES PIC interfaces must be different
+    ##
+    ge-0/0/6 {
+        ##
+        ## range: 0 .. 1073741823
+        ##
+---(more 37%)---                                                unit 0 {
+            ##
+            ## family: Protocol family
+            ## YANG module: junos-conf-interfaces@2023-01-01.yang
+            ## Daemon notify list: : dfwd 
+            ## constraint: Can't configure protocol family with encapsulation ppp-over-ether
+            ##
+            ##
+            ## ethernet-switching: Ethernet switching parameters
+            ## YANG module: junos-conf-interfaces@2023-01-01.yang
+            ## Daemon notify list: : rpd dot1xd 
+---(more 39%)---[abort]
+
+[edit]
+root# ]0;LASW
+
+[edit]
+root# 
+
+[edit]
+root# 
+
+[edit]
+root# 
+
+[edit]
+root# run shpoo
